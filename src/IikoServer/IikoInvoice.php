@@ -146,6 +146,8 @@ class IikoInvoice
         curl_setopt($reqData1, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($reqData1, CURLOPT_POSTFIELDS, $result);
         curl_setopt($reqData1, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($reqData1, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($reqData1, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($reqData1, CURLOPT_HTTPHEADER, array(
                 'Content-Type: application/xml')
         );

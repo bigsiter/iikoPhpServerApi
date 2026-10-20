@@ -55,6 +55,8 @@ abstract class IikoServerApi
         $ch = curl_init($this->serverUrl."/resto/api/auth?login=".$this->login."&pass=".sha1($this->password)."");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         $key = curl_exec($ch);
         $this->checkAuth($key);
         curl_close($ch);

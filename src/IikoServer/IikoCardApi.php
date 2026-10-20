@@ -68,6 +68,8 @@ abstract class IikoCardApi
         $ch = curl_init($this->serverUrl."/auth/access_token?user_id=".$this->login."&user_secret=".$this->password);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         $response = curl_exec($ch);
         curl_close($ch);
         if ($response[0] != '{'){

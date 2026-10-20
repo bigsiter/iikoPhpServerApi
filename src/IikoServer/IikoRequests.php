@@ -17,7 +17,9 @@ trait IikoRequests {
             CURLOPT_TIMEOUT => 0,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => $method
+            CURLOPT_CUSTOMREQUEST => $method,
+            CURLOPT_SSL_VERIFYPEER => 0,
+            CURLOPT_SSL_VERIFYHOST => 0,
         ));
         curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
 
@@ -45,7 +47,9 @@ trait IikoRequests {
             CURLOPT_CUSTOMREQUEST => $method,
             CURLOPT_HTTPHEADER => array(
                 "Content-Type: application/json"
-            )
+            ),
+            CURLOPT_SSL_VERIFYPEER => 0,
+            CURLOPT_SSL_VERIFYHOST => 0,
         ));
         curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
 
@@ -75,7 +79,9 @@ trait IikoRequests {
                 "Content-Type: application/json"
             ),
             CURLOPT_POST => 1,
-            CURLOPT_POSTFIELDS => $body
+            CURLOPT_POSTFIELDS => $body,
+            CURLOPT_SSL_VERIFYPEER => 0,
+            CURLOPT_SSL_VERIFYHOST => 0,
         ));
 
         $response = curl_exec($curl);
